@@ -5,4 +5,9 @@
     <string name="error_empty_text">Поле не может быть пустым!</string>
     <string name="error_contains_spacers">Поле не может содержать пробелы!</string>
     <string name="check_log_and_password">Проверьте введенные данные и попробуйте снова</string>
+    <string name="id">ID:</string>
+    <string name="amount">AMOUNT</string>
+    <string name="date">DATE</string>
+    <string name="no_info">NO INFO</string>
+    <string name="loading_error_toast">Ошибка при загрузке</string>
 </resources>

@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.prmatch.easypay.Application
 import com.prmatch.easypay.R
 import com.prmatch.easypay.databinding.FragmentLoginBinding
+import com.prmatch.easypay.payments_screen.PaymentsScreenFragment
 import com.prmatch.easypay.utils.DataState
 
 class LoginScreenFragment : Fragment() {
@@ -40,15 +41,20 @@ class LoginScreenFragment : Fragment() {
 
     private fun checkDataState() {
         viewModel.loginState.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 DataState.Error -> {
                     binding.dataStatusBar.visibility = View.INVISIBLE
                 }
+
                 DataState.Loading -> {
                     binding.dataStatusBar.visibility = View.VISIBLE
                 }
+
                 DataState.Success -> {
                     binding.dataStatusBar.visibility = View.INVISIBLE
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment_container, PaymentsScreenFragment())
+                        .commit()
                 }
             }
         }
@@ -88,6 +94,11 @@ class LoginScreenFragment : Fragment() {
         }
 
         return isValid
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

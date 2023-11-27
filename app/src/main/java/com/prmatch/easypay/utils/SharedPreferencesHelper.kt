@@ -8,8 +8,8 @@ class SharedPreferencesHelper(private val context: Context) {
 
     private val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
-    fun checkToken(token: String): Boolean {
-        return sharedPreferences.contains(token)
+    fun checkToken(): Boolean {
+        return sharedPreferences.contains(TOKEN)
     }
 
     fun setToken(token: String) {
@@ -20,5 +20,11 @@ class SharedPreferencesHelper(private val context: Context) {
 
     fun getToken(): String {
         return sharedPreferences.getString(TOKEN, "") ?: ""
+    }
+
+    fun removeToken() {
+        sharedPreferences.edit {
+            remove(TOKEN)
+        }
     }
 }
