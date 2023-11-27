@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">EasyPay</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="error_empty_text">Поле не может быть пустым!</string>
+    <string name="error_contains_spacers">Поле не может содержать пробелы!</string>
+    <string name="check_log_and_password">Проверьте введенные данные и попробуйте снова</string>
 </resources>
